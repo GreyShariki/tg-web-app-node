@@ -98,24 +98,3 @@ https.createServer(credentials, app).listen(port, "0.0.0.0", async () => {
     console.error("Ошибка при запуске сервера:", error);
   }
 });
-// Запуск сервера без HTTPS
-// app.listen(port, "0.0.0.0", async () => {
-//   try {
-//     await db.sequelize.sync({ alter: true });
-
-//     db.catalog.hasMany(db.cart, { foreignKey: "product_id", as: "carts" });
-//     db.cart.belongsTo(db.catalog, { foreignKey: "product_id", as: "product" });
-
-//     db.catalog.hasMany(db.orders, { foreignKey: "product_id", as: "orders" });
-//     db.orders.belongsTo(db.catalog, {
-//       foreignKey: "product_id",
-//       as: "product",
-//     });
-
-//     console.log("All associations have been set up");
-//     console.log(`Сервер запущен на порту ${port}`);
-//     console.log(`Подключение к БД успешно установлено`);
-//   } catch (error) {
-//     console.error("Ошибка при запуске сервера:", error);
-//   }
-// });
