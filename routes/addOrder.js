@@ -18,7 +18,8 @@ router.post("/", async (req, res) => {
       !orderData.quantity ||
       !orderData.total_price ||
       !orderData.address ||
-      !orderData.phone
+      !orderData.phone ||
+      !orderData.size
     ) {
       return res.status(400).json({ error: "Missing required fields" });
     }
