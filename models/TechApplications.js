@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     chat_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
     },
     type_of_failure: {
       type: DataTypes.STRING,

@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     "cart",
     {
       user_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: false,
       },
       product_id: {

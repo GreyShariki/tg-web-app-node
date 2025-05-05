@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: "admin",
     },
     chat_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       allowNull: false,
     },
   });

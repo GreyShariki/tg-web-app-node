@@ -62,7 +62,7 @@ app.use("/api/dropCart", dropCart);
 
 https.createServer(credentials, app).listen(port, "0.0.0.0", async () => {
   try {
-    await db.sequelize.sync({ alter: true });
+    await db.sequelize.sync({ force: true, alter: true });
 
     db.catalog.hasMany(db.cart, { foreignKey: "product_id", as: "carts" });
     db.cart.belongsTo(db.catalog, { foreignKey: "product_id", as: "product" });
