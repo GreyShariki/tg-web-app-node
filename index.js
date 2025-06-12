@@ -4,24 +4,20 @@ const cors = require("cors");
 const https = require("https");
 const fs = require("fs");
 const app = express();
-const port = 443;
+const port = 3000;
 app.use(express.json());
 app.use(cors({ origin: "*" }));
 
-const privateKey = fs.readFileSync(
-  "/etc/letsencrypt/live/apikazakovm.ru/privkey.pem",
-  "utf8"
-);
-const certificate = fs.readFileSync(
-  "/etc/letsencrypt/live/apikazakovm.ru/fullchain.pem",
-  "utf8"
-);
+// const privateKey = fs.readFileSync(
+//   "/etc/letsencrypt/live/apikazakovm.ru/privkey.pem",
+//   "utf8"
+// );
+// const certificate = fs.readFileSync(
+//   "/etc/letsencrypt/live/apikazakovm.ru/fullchain.pem",
+//   "utf8"
+// );
 
-const credentials = { key: privateKey, cert: certificate };
-
-app.get("/", (req, res) => {
-  res.send("Как же я долго переходил на протокол https");
-});
+// const credentials = { key: privateKey, cert: certificate };
 
 const allUsersRouter = require("./routes/allUsers");
 const authMiddleware = require("./routes/authMiddleware");
@@ -60,7 +56,7 @@ app.use("/api/addCart", addCart);
 app.use("/api/getCart", getCart);
 app.use("/api/dropCart", dropCart);
 
-https.createServer(credentials, app).listen(port, "0.0.0.0", async () => {
+app.listen(port, "0.0.0.0", async () => {
   try {
     await db.sequelize.sync({ alter: true });
 

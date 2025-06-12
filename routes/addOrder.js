@@ -4,9 +4,9 @@ const { Telegraf } = require("telegraf");
 const router = express.Router();
 const db = require("../models");
 
-const { BOT_TOKEN } = require("../config.json");
+const { BOT_TOKEN_THREAD } = require("../config.json");
 
-const bot = new Telegraf(BOT_TOKEN);
+const bot = new Telegraf(BOT_TOKEN_THREAD);
 
 router.post("/", async (req, res) => {
   try {
